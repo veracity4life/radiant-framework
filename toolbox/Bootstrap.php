@@ -1,31 +1,32 @@
 <?php
 
 /**
-*
+* 
 */
 class Bootstrap
 {
-
+	
 	function __construct() 	{
-		if(isset($_GET['url']) && !empty($_GET['url'])) {
+		if (isset($_GET['url']) && !empty($_GET['url'])) {
 			$url = rtrim($_GET['url'], '/');
 			$url = filter_var($url, FILTER_SANITIZE_URL);
 			$url = explode("/", $url);
 		} else {
-			$url[0] = "login";
+			$url[0] = "controlcenter";
 		}
 
 		$file = BASE_DIR . "/application/controllers/" . $url[0] . ".php";
 
-		if(file_exists($file)) {
+		if (file_exists($file)) {
 			require $file;
+            $controller = new $url[0];
 		} else {
-			// TODO: Write an error controller to handle these messages.
-			die("The file: <b>$file</b> does not exist.");
+			// TODO: Write an error controller
+			require BASE_DIR . "/application/controllers/error.php";
+            $controller = new Error();
 		}
 
-		$controller = new $url[0];
-		/*if(!$controller->acitveSession() && $url[0] != 'login') {
+		/*if (!$controller->acitveSession() && $url[0] != 'login') {
 			Session::set("error", "You need to log in before accessing that page or your session has expired.");
 			header('Location: ' . BASE_URL . '/login');
 			exit();
@@ -33,17 +34,21 @@ class Bootstrap
 
 		$controller->loadModel($url[0]);
 
-		if(isset($url[1]) && !empty($url[1])) {
-			if(isset($url[2]) && (!empty($url[2]) || in_array($url[2], array(0, '0')))) {
+		if (isset($url[1]) && !empty($url[1])) {
+			if (isset($url[2]) && (!empty($url[2]) || in_array($url[2], array(0, '0')))) {
 				$args = array_slice($url, 2);
 				$controller->{$url[1]}($args);
-			} else {
+			} else if (method_exists($controller,$url[1])) {
 				$controller->{$url[1]}();
 			}
 		}
 
-		if(!isset($controller->view->rendered)) {
-			$controller->getView();
+		if (!isset($controller->view->rendered)) {
+            if (isset($url[1]) && !method_exists($controller,$url[1])) {
+                $controller->getView($url[1]);
+            } else {
+                $controller->getView();
+            }
 		}
 	}
 }
