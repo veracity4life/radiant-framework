@@ -1,9 +1,9 @@
 <?php
 
 /**
-*
+* 
 */
-class View
+class View 
 {
 	function __construct() {
 
@@ -11,12 +11,15 @@ class View
 
 	public function render($page, $included = true)
 	{
+        if (!file_exists(BASE_DIR . APP_DIR . '/views/' . $page . '.php'))
+            $page = "error/404";
+
 		if ($included == false) {
-			require BASE_DIR . APP_DIR . '/views/' . $page . '.php';
+			require BASE_DIR . APP_DIR . '/views/' . $page . '.php';	
 		} else {
 			require BASE_DIR . APP_DIR . '/views/header.php';
 			require BASE_DIR . APP_DIR . '/views/' . $page . '.php';
-			require BASE_DIR . APP_DIR . '/views/footer.php';
+			require BASE_DIR . APP_DIR . '/views/footer.php';	
 		}
 
 		$this->rendered = TRUE;
