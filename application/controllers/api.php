@@ -24,15 +24,15 @@ class Api extends Controller
 
 		# Check if the request data is set as an array, if not create an array from object data
 		if(!is_array($tempRequest) && is_object($tempRequest)) {
-			foreach($tempRequest as $property => $value) {
-				$requestData[$property] = $value;
+			foreach($tempRequest as $account => $value) {
+				$requestData[$account] = $value;
 
 				if(!is_array($value) && is_object($value)) {
-					$requestData[$property] = array();
+					$requestData[$account] = array();
 					foreach($value as $pr => $v) {
-						$requestData[$property][$pr] = $v;
+						$requestData[$account][$pr] = $v;
 					}
-					$requestData[$property] = json_encode($requestData[$property]);
+					$requestData[$account] = json_encode($requestData[$account]);
 				}
 			}
 		} else {

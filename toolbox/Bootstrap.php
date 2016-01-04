@@ -12,7 +12,7 @@ class Bootstrap
 			$url = filter_var($url, FILTER_SANITIZE_URL);
 			$url = explode("/", $url);
 		} else {
-			$url[0] = "controlcenter";
+			$url[0] = "home";
 		}
 
 		$file = BASE_DIR . "/application/controllers/" . $url[0] . ".php";

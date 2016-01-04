@@ -5,14 +5,14 @@
 */
 class Login extends Controller
 {
-
 	function __construct() {
 		parent::__construct();
 
 	}
 
 	public function getView($view = "index") {
-		$this->view->PAGE_TITLE = "Login";
+        session_unset();
+
 		$this->view->render('login/' . $view);
 	}
 
@@ -23,18 +23,18 @@ class Login extends Controller
 			exit();
 		}
 
-		# Check credentials and then get the property id
-//		$propID = $this->model->checkCredentials();
-		if(!$propID) {
+		# Check credentials and then get the account id
+		$accountID = $this->model->checkCredentials();
+		if(!$accountID) {
 			Session::set('error', $this->model->errorMsg);
 			header("Location: " . BASE_URL . "/login");
 			exit();
 		}
 
 
-		# Check for property info and assign to session
-		if(isset($propID) && !empty($propID)) {
-			Session::set('propertyID', $propID);
+		# Check for account info and assign to session
+		if(isset($accountID) && !empty($accountID)) {
+			Session::set('accountID', $accountID);
 
 			header("Location: " . BASE_URL . "/home");
 			exit();
