@@ -6,7 +6,7 @@
 class GoogleCloudMessaging
 {
 
-	private $apiKey = 'AIzaSyAmEQRCiJUnxmCac734GYn0NvN6QpAZCnA';
+	private $apiKey = '';
 	private $url = 'https://android.googleapis.com/gcm/send';
 
 	public $registrationIDs;
