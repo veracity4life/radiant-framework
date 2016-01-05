@@ -9,8 +9,8 @@ class iOSNotifications
 	private $apnsHostUrl = "gateway.sandbox.push.apple.com:2195";
 	private $apnsConnection = false;
 
-	private $passphrase = "pushcert";
-	private $localCert = "sheltr.pem";
+	private $passphrase = "";
+	private $localCert = "";
 
 
 	private $deviceTokens = array();
