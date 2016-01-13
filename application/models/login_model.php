@@ -12,7 +12,7 @@ class Login_Model extends Model
 	}
 
 	public function getPropertyList() {
-		$sql = "SELECT id, name FROM Property WHERE organizationID = 1";
+		$sql = "";
 		$propList = $this->db_main->get_array($sql);
 
 		return $propList;
@@ -21,7 +21,7 @@ class Login_Model extends Model
 	public function checkCredentials() {
 
 		# Check login credentials against the DB
-		$sql = "SELECT uuid, propertyID FROM User WHERE emailPrimary = '" . mysqli_real_escape_string($this->db_main->conn, $_POST['username']) . "' AND webAccess = 1 AND webPassword = '" . md5($_POST['password']) . "'";
+		$sql = "";
 		$sqlResult = $this->db_main->get_row($sql);
 
 		if(empty($sqlResult) || !isset($sqlResult)) {
