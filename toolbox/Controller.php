@@ -3,6 +3,8 @@
 /**
 *
 */
+namespace Radiant\Toolbox;
+
 class Controller
 {
 	function __construct() {

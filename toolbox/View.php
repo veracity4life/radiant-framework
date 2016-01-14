@@ -3,6 +3,8 @@
 /**
 * 
 */
+namespace Radiant\Toolbox;
+
 class View 
 {
 	function __construct() {

@@ -1,5 +1,10 @@
 <?php
 
+/*
+ *
+ */
+namespace Radiant;
+
 	/**
 	 *	Store DB information for dev and production instances
 	 *
@@ -37,8 +42,8 @@
 	 *
 	**/
 
-	define('DB_HOST', $config_db['host']);
-	define('DB_SCHEMA', $config_db['schema']);
-	define('DB_USERNAME', $config_db['username']);
-	define('DB_PASSWORD', $config_db['password']);
-	define('DB_PORT', $config_db['port']);
+	define('Radiant\DB_HOST', $config_db['host']);
+	define('Radiant\DB_SCHEMA', $config_db['schema']);
+	define('Radiant\DB_USERNAME', $config_db['username']);
+	define('Radiant\DB_PASSWORD', $config_db['password']);
+	define('Radiant\DB_PORT', $config_db['port']);

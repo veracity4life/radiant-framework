@@ -3,10 +3,25 @@
 /**
 * 
 */
+namespace Radiant\Toolbox;
+
+
+require "toolbox/Config.php";
+
+
+use Radiant\Config;
+
+
 class Bootstrap
 {
 	
 	function __construct() 	{
+
+        // Load application and database configs
+        Config::loadConfigs();
+
+
+        // Check get values from .htaccess routing to determine app route
 		if (isset($_GET['url']) && !empty($_GET['url'])) {
 			$url = rtrim($_GET['url'], '/');
 			$url = filter_var($url, FILTER_SANITIZE_URL);
@@ -15,14 +30,14 @@ class Bootstrap
 			$url[0] = "home";
 		}
 
-		$file = BASE_DIR . "/application/controllers/" . $url[0] . ".php";
+		$file = \Radiant\BASE_DIR . "/application/controllers/" . $url[0] . ".php";
 
 		if (file_exists($file)) {
 			require $file;
             $controller = new $url[0];
 		} else {
 			// TODO: Write an error controller
-			require BASE_DIR . "/application/controllers/error.php";
+			require \Radiant\BASE_DIR . "/application/controllers/error.php";
             $controller = new Error();
 		}
 

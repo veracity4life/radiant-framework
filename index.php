@@ -1,30 +1,23 @@
 <?php
 
-	// Configs
-	require "toolbox/configs/application.php";
-	require "toolbox/configs/database.php";
+/**
+*
+*/
+namespace Radiant;
 
+// Libs
+require "toolbox/libs/DBConnection.php";
+require "toolbox/libs/Session.php";
 
-	if(ERROR_REPORTS) {
-		error_reporting(E_ALL);
-		ini_set("display_errors", 1);
-	}
+// Toolbox
+require "toolbox/Bootstrap.php";
+require "toolbox/Controller.php";
+require "toolbox/Model.php";
+require "toolbox/View.php";
 
-	ini_set('memory_limit', '128M');
+use Radiant\Toolbox\Bootstrap;
 
-
-	// Libs
-	require "toolbox/libs/DBConnection.php";
-	require "toolbox/libs/Session.php";
-
-	// Toolbox
-	require "toolbox/Bootstrap.php";
-	require "toolbox/Controller.php";
-	require "toolbox/Model.php";
-	require "toolbox/View.php";
-
-
-	// Initiate Application
-	$app = new Bootstrap();
+// Initiate Application
+$app = new Bootstrap();
 
 
