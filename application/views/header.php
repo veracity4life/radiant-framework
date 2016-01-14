@@ -23,10 +23,6 @@
 				<div class="navbar-header">
 <!--					<img class="navbar-icon" src="<?= PUBLIC_DIR_URL ?>/images/brand-Image" />-->
 					<h1 class="brandTitle">Brand-Title</h1>
-					<?php
-					if(Session::get("name") !== FALSE && Session::get("username") !== FALSE) { ?>
-					<h2 class="brandSubtitle"><?= Session::get("name") ?></h2>
-					<?php } ?>
 				</div>
 
 			</div>
@@ -35,27 +31,3 @@
 
 
 		<div class="page-content">
-
-			<?php
-			$message = array();
-
-			if(Session::get("error") !== FALSE) {
-				$message["error"] = Session::get("error");
-				Session::clear("error");
-			}
-			if(Session::get("confirm") !== FALSE) {
-				$message["confirm"] = Session::get("confirm");
-				Session::clear("confirm");
-			}
-			if(Session::get("notify") !== FALSE) {
-				$message["notify"] = Session::get("notify");
-				Session::clear("notify");
-			}
-
-			foreach ($message as $key => $value) {
-				?>
-				<p class="<?= $key ?>-message rounded-border"><?= $value ?></p>
-				<?php
-			}
-
-			?>
