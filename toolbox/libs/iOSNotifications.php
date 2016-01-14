@@ -1,5 +1,7 @@
 <?php
 
+namespace Radiant\Toolbox\Libs;
+
 /**
 *
 */
@@ -9,6 +11,7 @@ class iOSNotifications
 	private $apnsHostUrl = "gateway.sandbox.push.apple.com:2195";
 	private $apnsConnection = false;
 
+    // Passphrase and LocalCert are projcet specific
 	private $passphrase = "";
 	private $localCert = "";
 

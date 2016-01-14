@@ -1,10 +1,12 @@
 <?php
 
+namespace Radiant\Toolbox;
+
+use Radiant\Toolbox\Libs\DBConnection;
+
 /**
 *
 */
-namespace Radiant\Toolbox;
-
 class Model
 {
 

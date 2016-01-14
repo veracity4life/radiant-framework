@@ -1,5 +1,7 @@
 <?php
 
+namespace Radiant\Toolbox\Helpers;
+
 /**
 *
 */

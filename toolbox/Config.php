@@ -1,10 +1,10 @@
 <?php
 
+namespace Radiant\Toolbox;
+
 /*
  *
  */
-namespace Radiant;
-
 class Config
 {
     private static $active_configs = array();

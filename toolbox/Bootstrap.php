@@ -1,23 +1,19 @@
 <?php
 
-/**
-* 
-*/
 namespace Radiant\Toolbox;
 
+use Radiant\Toolbox\Config;
+use App\Controllers\Error;
 
-require "toolbox/Config.php";
-
-
-use Radiant\Config;
-
-
+/**
+*
+*/
 class Bootstrap
 {
 	
 	function __construct() 	{
 
-        // Load application and database configs
+        // Load all defined config files
         Config::loadConfigs();
 
 
@@ -30,14 +26,14 @@ class Bootstrap
 			$url[0] = "home";
 		}
 
-		$file = \Radiant\BASE_DIR . "/application/controllers/" . $url[0] . ".php";
+		$file = BASE_DIR . "/application/controllers/" . $url[0] . ".php";
 
 		if (file_exists($file)) {
 			require $file;
             $controller = new $url[0];
 		} else {
 			// TODO: Write an error controller
-			require \Radiant\BASE_DIR . "/application/controllers/error.php";
+//			require \Radiant\BASE_DIR . "/application/controllers/error.php";
             $controller = new Error();
 		}
 

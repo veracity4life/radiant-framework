@@ -1,5 +1,7 @@
 <?php
 
+namespace Radiant\Toolbox\Libs;
+
 /**
 *   Based off of a previously used DB connection class and updated for the mysqli functions.  Not sure of original source code.
 */

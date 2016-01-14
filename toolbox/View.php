@@ -1,10 +1,10 @@
 <?php
 
+namespace Radiant\Toolbox;
+
 /**
 * 
 */
-namespace Radiant\Toolbox;
-
 class View 
 {
 	function __construct() {

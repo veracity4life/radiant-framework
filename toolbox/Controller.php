@@ -1,10 +1,12 @@
 <?php
 
+namespace Radiant\Toolbox;
+
+use Radiant\Toolbox\Helpers\Session;
+
 /**
 *
 */
-namespace Radiant\Toolbox;
-
 class Controller
 {
 	function __construct() {
