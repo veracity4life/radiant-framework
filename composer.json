@@ -1,0 +1,23 @@
+{
+    "name": "veracity4life/radiant-framework",
+    "description": "Radiant Framework v1 - PHP Barebones Framework",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Michael Russell",
+            "email": "veracity4life@gmail.com",
+            "role": "Lead Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Radiant\\" : "",
+            "App\\" : "application"
+        }
+    }
+
+}
