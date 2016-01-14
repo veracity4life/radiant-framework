@@ -1,19 +1,14 @@
 <?php
 
-/*
- *
- */
-namespace Radiant;
-
 	/**
 	 *	ENVIRONMENT (DEV, DEMO, PROD)
 	 *
 	 *	ERROR_REPORTS (TRUE, FALSE)
 	**/
 
-	define('Radiant\ENVIRONMENT', 'DEV');
+	define('ENVIRONMENT', 'DEV');
 
-	define('Radiant\ERROR_REPORTS', TRUE);
+	define('ERROR_REPORTS', TRUE);
 
 
 
@@ -22,28 +17,28 @@ namespace Radiant;
 	 *
 	**/
 
-	define('Radiant\BASE_URL', '/radiant-framework');
+	define('BASE_URL', '/radiant-framework');
 
-	define('Radiant\PUBLIC_DIR_URL', '/radiant-framework/public');
+	define('PUBLIC_DIR_URL', '/radiant-framework/public');
 
     switch(ENVIRONMENT) {
         case "PROD":
-            define('Radiant\BASE_DIR', '');
+            define('BASE_DIR', '');
             break;
 
         case "DEMO":
-            define('Radiant\BASE_DIR', '');
+            define('BASE_DIR', '');
             break;
 
         case "DEV":
         default:
-            define('Radiant\BASE_DIR', '/Applications/MAMP/htdocs/radiant-framework');
+            define('BASE_DIR', '/Applications/MAMP/htdocs/radiant-framework');
             break;
     }
 
 
-	define('Radiant\APP_DIR', '/application');
-	define('Radiant\LIB_DIR', '/toolbox/libs');
+	define('APP_DIR', '/application');
+	define('LIB_DIR', '/toolbox/libs');
 
 
     if(ERROR_REPORTS) {
