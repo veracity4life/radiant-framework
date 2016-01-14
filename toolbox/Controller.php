@@ -26,16 +26,11 @@ class Controller
 	}
 
 	public function loadModel($label) {
-		$path = BASE_DIR . APP_DIR . "/models/" . $label . "_model.php";
+		$fqn = "App\\Models\\" . $label;
 
-		if(file_exists($path)) {
-			require $path;
-
-			$modelName = $label . "_Model";
-			$this->model = new $modelName();
-
-/*			if(Session::get("id") != FALSE)*/
-				$this->model->initDB();
+		if(class_exists($fqn)) {
+			$this->model = new $fqn();
+            $this->model->initDB();
 		}
 	}
 

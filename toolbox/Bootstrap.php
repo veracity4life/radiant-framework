@@ -16,7 +16,6 @@ class Bootstrap
         // Load all defined config files
         Config::loadConfigs();
 
-
         // Check get values from .htaccess routing to determine app route
 		if (isset($_GET['url']) && !empty($_GET['url'])) {
 			$url = rtrim($_GET['url'], '/');
@@ -26,15 +25,14 @@ class Bootstrap
 			$url[0] = "home";
 		}
 
-		$file = BASE_DIR . "/application/controllers/" . $url[0] . ".php";
+		$fqn = "App\\Controllers\\" . $url[0];
 
-		if (file_exists($file)) {
-			require $file;
-            $controller = new $url[0];
+		if (class_exists($fqn)) {
+//			require $fqn;
+            $controller = new $fqn();
 		} else {
 			// TODO: Write an error controller
-//			require \Radiant\BASE_DIR . "/application/controllers/error.php";
-            $controller = new Error();
+//            $controller = new Error();
 		}
 
 		/*if (!$controller->acitveSession() && $url[0] != 'login') {

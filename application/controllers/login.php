@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Controllers;
+
+use Radiant\Toolbox\Controller;
+
 /**
 *
 */
